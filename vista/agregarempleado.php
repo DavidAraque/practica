@@ -42,8 +42,8 @@
             <label for="">Estado Empleado</label>
             <select class="form-select mb-3" name="estadoE">
                 <option selected disable>--Elegir estado--</option>
-                <option value="1">Activo</option>
-                <option value="2">Inactivo</option>
+                <option value="activo">Activo</option>
+                <option value="inactivo">Inactivo</option>
             </select>
             <label for="">Box</label>
             <select class="form-select mb-3" name="boxE">

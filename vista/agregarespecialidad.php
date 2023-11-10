@@ -25,7 +25,7 @@
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Enviar</button>
-                <a href="../index.php" class="btn btn-dark">Regresar</a>
+                <a href="../vista/inicioespecialidad.php" class="btn btn-dark">Regresar</a>
             </div>
         </form>
     </div>

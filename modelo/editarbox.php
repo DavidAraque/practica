@@ -7,12 +7,12 @@
     $estadob = $_POST['estadoB'];
 
 
-    $sql = "UPDATE empleado SET 
+    $sql = "UPDATE box SET 
             nombre_box='".$nombrebox."',
-            id_estado_box='".$estadob."',
+            id_estado_box='".$estadob."'
              WHERE id_box =".$idb.""; 
             
     if($resultado = $conexion->query($sql)){
-                header("location:../index.php");
+                header("location:../vista/iniciobox.php");
             }
 ?>

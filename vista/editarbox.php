@@ -26,7 +26,8 @@
 
         $row = $resultado->fetch_assoc();
         ?>
-        <form action="../modelo/insertarbox.php" method="POST">
+        <form action="../modelo/editarbox.php" method="POST">
+        <input type="hidden" class="form-control" name="IdB" value="<?php echo $row['id_box']; ?>">
             <div class="mb-2">
                 <label class="form-label">Nombre box:</label>
                 <input type="text" class="form-control" name="nombrebox" value="<?php echo $row['nombre_box']; ?>">

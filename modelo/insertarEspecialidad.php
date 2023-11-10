@@ -1,6 +1,7 @@
 <?php
 include("../config/conexion.php");
 
+
 if (isset($_POST['especialidad'])) {
     $especialidad = $_POST['especialidad'];
     $sql = "INSERT INTO especialidad (nombre_especialidad) VALUES ('$especialidad')";
@@ -8,7 +9,7 @@ if (isset($_POST['especialidad'])) {
     $resultado = mysqli_query($conexion, $sql);
 
     if ($resultado === TRUE) {
-        header("location:../index.php");
+        header("location:../vista/inicioespecialidad.php");
     } else {
         echo "Datos NO insertados";
     }
@@ -16,3 +17,4 @@ if (isset($_POST['especialidad'])) {
     echo "Faltan datos en el formulario.";
 }
 ?>
+

@@ -20,7 +20,7 @@
     </h1>
     <br>
     <div class="container">
-            <a href="vista/agregarempleado.php" class="btn btn-success">Agregar box</a>
+            <a href="agregarbox.php" class="btn btn-success">Agregar box</a>
         </div>
     <div class="Container">
         <table class="table table-dark table-striped table-responsive">
@@ -28,8 +28,8 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">nombre del box</th>
-                    <th scope="col">correo</th>
-                    <th scope="col">estado</th>
+                    <th scope="col">estado del box</th>
+                    <th scope="col">acciones</th>
                 </tr>
             </thead>
             <tbody>

@@ -26,32 +26,35 @@
 
         $row = $resultado->fetch_assoc();
         ?>
-        <form action="../modelo/insertarempleado.php" method="POST">
+
+        <form action="../modelo/editarempleado.php" method="POST">
+            
+        <input type="text" class="form-control" name="IdE" value="<?php echo $row['id_empleado']; ?>">
             <div class="mb-2">
                 <label class="form-label">Rut:</label>
                 <input type="text" class="form-control" name="rut" value="<?php echo $row['rut_empleado']; ?>">
             </div>
             <div class="mb-2">
                 <label class="form-label">Correo:</label>
-                <input type="email" class="form-control" value="<?php echo $row['correo']; ?>">
+                <input type="email" class="form-control" name="correo" value="<?php echo $row['correo']; ?>">
             </div>
             <div class="mb-2">
                 <label class="form-label">Clave:</label>
-                <input type="text" class="form-control" value="<?php echo $row['clave']; ?>">
+                <input type="text" class="form-control" name="clave" value="<?php echo $row['clave']; ?>">
             </div>
             <div class="mb-2">
                 <label class="form-label">Nombres:</label>
-                <input type="text" class="form-control" value="<?php echo $row['nombre_empleado']; ?>">
+                <input type="text" class="form-control" name="nombre" value="<?php echo $row['nombre_empleado']; ?>">
             </div>
             <div class="mb-2">
                 <label class="form-label">Apellidos:</label>
-                <input type="tex" class="form-control" value="<?php echo $row['apellido_empleado']; ?>">
+                <input type="tex" class="form-control" name="apellido" value="<?php echo $row['apellido_empleado']; ?>">
             </div>
             <label for="">Estado Empleado</label>
             <select class="form-select mb-3" name="estadoE">
                 <option selected disable>--Elegir estado--</option>
-                <option value="activo">Activo</option>
-                <option value="inactivo">Inactivo</option>
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
             </select>
             <label for="">Box</label>
             <select class="form-select mb-3" name="boxE">

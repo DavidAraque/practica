@@ -66,8 +66,3 @@ CREATE TABLE Turno_estadoturno (
     CONSTRAINT FK_Turno_estadoturno_Estadoturno FOREIGN KEY (estadoturnoid) REFERENCES Estadoturno (id_estado_turno),
     CONSTRAINT FK_Turno_estadoturno_empleado FOREIGN KEY (empleadoid) REFERENCES Empleado (id_empleado)
 );
-
-    matricula INT PRIMARY KEY,
-    rut_estudiante NVARCHAR(50) NOT NULL UNIQUE,
-    nombre_estudiante NVARCHAR(50) NOT NULL,
-    apellido_estudiante NVARCHAR(50) NOT NULL

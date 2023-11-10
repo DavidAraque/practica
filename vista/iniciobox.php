@@ -48,7 +48,7 @@
                         <th scope="row"><?php echo $resultado['id_estado_box']?></th>
                         <th>
                             <a href="editarbox.php ?IdB=<?php echo $resultado['id_box']?>"  class="btn btn-warning">Editar</a>
-                            <a href="" class="btn btn-danger">Eliminar</a>
+                            <a href="../modelo/eliminarbox.php?IdB=<?php echo $resultado['id_box']?>" class="btn btn-danger">Eliminar</a>
                         </th>
                     </tr>
 

@@ -29,7 +29,7 @@
         <form action="../modelo/insertarbox.php" method="POST">
             <div class="mb-2">
                 <label class="form-label">Nombre box:</label>
-                <input type="text" class="form-control" value="<?php echo $row['nombre_box']; ?>">
+                <input type="text" class="form-control" name="nombrebox" value="<?php echo $row['nombre_box']; ?>">
             </div>
             <label for="">Estado Box</label>
             <select class="form-select mb-3" name="estadoB">

@@ -64,8 +64,8 @@
                         <th scope="row"><?php echo $resultado['nombre_perfil_sistema']?></th>
                         <th scope="row"><?php echo $resultado['nombre_especialidad']?></th>
                         <th>
-                            <a href="vista/editarempleado.php ?IdE=<?php echo $resultado['id_empleado']?>"  class="btn btn-warning">Editar</a>
-                            <a href="" class="btn btn-danger">Eliminar</a>
+                            <a href="vista/editarempleado.php?IdE=<?php echo $resultado['id_empleado']?>"  class="btn btn-warning">Editar</a>
+                            <a href="modelo/eliminarempleado.php?IdE=<?php echo $resultado['id_empleado']?>" class="btn btn-danger">Eliminar</a>
                         </th>
                     </tr>
 

@@ -29,7 +29,7 @@
 
         <form action="../modelo/editarempleado.php" method="POST">
             
-        <input type="text" class="form-control" name="IdE" value="<?php echo $row['id_empleado']; ?>">
+        <input type="hidden" class="form-control" name="IdE" value="<?php echo $row['id_empleado']; ?>">
             <div class="mb-2">
                 <label class="form-label">Rut:</label>
                 <input type="text" class="form-control" name="rut" value="<?php echo $row['rut_empleado']; ?>">

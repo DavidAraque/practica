@@ -18,7 +18,7 @@
     <h1 class="text-center bg-black ">Editar Box</h1>
     <br>
     <div class="container">
-    <?php
+        <?php
         include_once("../config/conexion.php");
 
         $sql = "SELECT * from box WHERE id_box=" . $_REQUEST['IdB'];
@@ -27,17 +27,20 @@
         $row = $resultado->fetch_assoc();
         ?>
         <form action="../modelo/editarbox.php" method="POST">
-        <input type="hidden" class="form-control" name="IdB" value="<?php echo $row['id_box']; ?>">
+            <input type="hidden" class="form-control" name="IdB" value="<?php echo $row['id_box']; ?>">
             <div class="mb-2">
                 <label class="form-label">Nombre box:</label>
                 <input type="text" class="form-control" name="nombrebox" value="<?php echo $row['nombre_box']; ?>">
             </div>
-            <label for="">Estado Box</label>
-            <select class="form-select mb-3" name="estadoB">
+            <label for="estadoB">Estado Box</label>
+            <select class="form-select mb-3" name="estadoB" id="estadoB">
                 <option selected disable>--Elegir estado--</option>
-                <option value="Activo">Activo</option>
-                <option value="Inactivo">Inactivo</option>
+                <option value="Activo" <?php echo ($row['id_estado_box'] == 'Activo' ? 'selected' : ''); ?>>Activo
+                </option>
+                <option value="Inactivo" <?php echo ($row['id_estado_box'] == 'Inactivo' ? 'selected' : ''); ?>>Inactivo
+                </option>
             </select>
+
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Enviar</button>
                 <a href="iniciobox.php" class="btn btn-dark">Regresar</a>

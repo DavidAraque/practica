@@ -18,18 +18,20 @@
     <h1 class="text-center bg-black ">Editar Empleados</h1>
     <br>
     <div class="container">
-    <?php
+        <?php
         include_once("../config/conexion.php");
 
         $sql = "SELECT * from empleado WHERE id_empleado=" . $_REQUEST['IdE'];
         $resultado = $conexion->query($sql);
 
         $row = $resultado->fetch_assoc();
+
+
         ?>
 
         <form action="../modelo/editarempleado.php" method="POST">
-            
-        <input type="hidden" class="form-control" name="IdE" value="<?php echo $row['id_empleado']; ?>">
+
+            <input type="hidden" class="form-control" name="IdE" value="<?php echo $row['id_empleado']; ?>">
             <div class="mb-2">
                 <label class="form-label">Rut:</label>
                 <input type="text" class="form-control" name="rut" value="<?php echo $row['rut_empleado']; ?>">
@@ -50,48 +52,48 @@
                 <label class="form-label">Apellidos:</label>
                 <input type="tex" class="form-control" name="apellido" value="<?php echo $row['apellido_empleado']; ?>">
             </div>
-            <label for="">Estado Empleado</label>
-            <select class="form-select mb-3" name="estadoE">
-                <option selected disable>--Elegir estado--</option>
-                <option value="Activo">Activo</option>
-                <option value="Inactivo">Inactivo</option>
+            <label for="estadoE">Estado Empleado</label>
+            <select class="form-select mb-3" name="estadoE" id="estadoE">
+                <option disabled>--Elegir estado--</option>
+                <option value="Activo" <?php echo ($row['estadoempleado'] == 'Activo' ? 'selected' : ''); ?>>Activo
+                </option>
+                <option value="Inactivo" <?php echo ($row['estadoempleado'] == 'Inactivo' ? 'selected' : ''); ?>>Inactivo
+                </option>
             </select>
-            <label for="">Box</label>
-            <select class="form-select mb-3" name="boxE">
-                <option selected disable>--Selecione Box--</option>
+            <label for="boxE">Box</label>
+            <select class="form-select mb-3" name="boxE" id="boxE">
+                <option disabled>--Seleccione Box--</option>
                 <?php
-                include("../config/conexion.php");
-
-                $sql = $conexion->query("SELECT * FROM box WHERE id_estado_box ='Activo'");
-                while ($resultado = $sql->fetch_assoc()) {
-                    echo "<option value='" . $resultado['id_box'] . "'>" . $resultado['nombre_box'] . "</option>";
+                $sqlBox = $conexion->query("SELECT * FROM box");
+                while ($resultadoBox = $sqlBox->fetch_assoc()) {
+                    $selected = ($row['boxid'] == $resultadoBox['id_box']) ? 'selected' : ''; // Ajusta 'box' al nombre de la columna real
+                    echo "<option value='" . $resultadoBox['id_box'] . "' $selected>" . $resultadoBox['nombre_box'] . "</option>";
                 }
                 ?>
             </select>
-            <label for="">Perfil sistema</label>
-            <select class="form-select mb-3" name="perfilE">
-                <option selected disable>--Selecione perfil--</option>
+            <label for="perfilE">Perfil sistema</label>
+            <select class="form-select mb-3" name="perfilE" id="perfilE">
+                <option disabled>--Seleccione perfil--</option>
                 <?php
-                include("../config/conexion.php");
-
-                $sql = $conexion->query("SELECT * FROM perfilsistema");
-                while ($resultado = $sql->fetch_assoc()) {
-                    echo "<option value='" . $resultado['id_perfil_sistema'] . "'>" . $resultado['nombre_perfil_sistema'] . "</option>";
+                $sqlPerfil = $conexion->query("SELECT * FROM perfilsistema");
+                while ($resultadoPerfil = $sqlPerfil->fetch_assoc()) {
+                    $selected = ($row['perfilsistemaid'] == $resultadoPerfil['id_perfil_sistema']) ? 'selected' : ''; // Ajusta 'box' al nombre de la columna real
+                    echo "<option value='" . $resultadoPerfil['id_perfil_sistema'] . "' $selected>" . $resultadoPerfil['nombre_perfil_sistema'] . "</option>";
                 }
                 ?>
             </select>
-            <label for="">Especialidad</label>
-            <select class="form-select mb-3" name="especialidadE">
-                <option selected disable>--Selecione Especialidad--</option>
+            <label for="especialidadE">Especialidad</label>
+            <select class="form-select mb-3" name="especialidadE" id="especialidadE">
+                <option disabled>--Seleccione Especialidad--</option>
                 <?php
-                include("../config/conexion.php");
-
-                $sql = $conexion->query("SELECT * FROM especialidad ");
-                while ($resultado = $sql->fetch_assoc()) {
-                    echo "<option value='" . $resultado['id_especialidad'] . "'>" . $resultado['nombre_especialidad'] . "</option>";
+                $sqlEspecialidad = $conexion->query("SELECT * FROM especialidad");
+                while ($resultadoEspecialidad = $sqlEspecialidad->fetch_assoc()) {
+                    $selected = ($row['especialidadid'] == $resultadoEspecialidad['id_especialidad']) ? 'selected' : ''; // Ajusta 'box' al nombre de la columna real
+                    echo "<option value='" . $resultadoEspecialidad['id_especialidad'] . "' $selected>" . $resultadoEspecialidad['nombre_especialidad'] . "</option>";
                 }
                 ?>
             </select>
+
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Enviar</button>
                 <a href="../index.php" class="btn btn-dark">Regresar</a>

@@ -4,7 +4,8 @@ include("../config/conexion.php");
 
 if (isset($_POST['especialidad'])) {
     $especialidad = $_POST['especialidad'];
-    $sql = "INSERT INTO especialidad (nombre_especialidad) VALUES ('$especialidad')";
+    $letra_e = $_POST['letra_e'];
+    $sql = "INSERT INTO especialidad (nombre_especialidad,letra_especialidad) VALUES ('$especialidad','$letra_e')";
 
     $resultado = mysqli_query($conexion, $sql);
 

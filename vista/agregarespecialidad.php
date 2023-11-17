@@ -23,6 +23,10 @@
                 <label class="form-label">Especialidad</label>
                 <input type="text" class="form-control" name="especialidad">
             </div>
+            <div class="mb-2">
+                <label class="form-label">letra de la especialidad</label>
+                <input type="text" class="form-control" name="letra_e">
+            </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Enviar</button>
                 <a href="../vista/inicioespecialidad.php" class="btn btn-dark">Regresar</a>

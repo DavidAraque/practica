@@ -32,7 +32,10 @@
                 <label class="form-label">Nombre Especialidad:</label>
                 <input type="text" class="form-control" name="especialidad" value="<?php echo $row['nombre_especialidad']; ?>">
             </div>
-
+            <div class="mb-2">
+                <label class="form-label">letra de la especialidad</label>
+                <input type="text" class="form-control" name="letra_e" value="<?php echo $row['letra_especialidad']; ?>">
+            </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Enviar</button>
                 <a href="inicioespecialidad.php" class="btn btn-dark">Regresar</a>

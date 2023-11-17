@@ -28,6 +28,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Especialidad</th>
+                    <th scope="col">Letra</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -44,6 +45,7 @@
                     <tr>
                         <th scope="row"><?php echo $resultado['id_especialidad']?></th>
                         <th scope="row"><?php echo $resultado['nombre_especialidad']?></th>
+                        <th scope="row"><?php echo $resultado['letra_especialidad']?></th>
                         <th>
                             <a href="editarespecialidad.php ?IdES=<?php echo $resultado['id_especialidad']?>"  class="btn btn-warning">Editar</a>
                             <a href="../modelo/eliminarespecialidad.php?IdES=<?php echo $resultado['id_especialidad']?>" class="btn btn-danger">Eliminar</a>

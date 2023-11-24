@@ -61,6 +61,7 @@ CREATE TABLE Turno (
     tiempo_ingreso DATETIME ,
     tiempo_atender DATETIME ,
     tiempo_salida DATETIME ,
+    estado_turno NVARCHAR(20) ,
     CONSTRAINT FK_Turno_Estudiante FOREIGN KEY (matriculaid) REFERENCES Estudiante (matricula),
     CONSTRAINT FK_Turno_Especialidad FOREIGN KEY (especialidadid) REFERENCES Especialidad (id_especialidad)
 );

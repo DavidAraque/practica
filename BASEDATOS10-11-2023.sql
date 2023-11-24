@@ -35,6 +35,7 @@ CREATE TABLE Empleado (
     boxid INT NOT NULL,
     perfilsistemaid INT NOT NULL,
     especialidadid INT NOT NULL,
+    fecha_registro DATETIME ,
     CONSTRAINT FK_Empleado_Box FOREIGN KEY (boxid) REFERENCES Box (id_box),
     CONSTRAINT FK_Empleado_perfilsistema FOREIGN KEY (perfilsistemaid) REFERENCES Perfilsistema (id_perfil_sistema),
     CONSTRAINT FK_Empleado_especialidad FOREIGN KEY (especialidadid) REFERENCES Especialidad (id_especialidad)
@@ -49,14 +50,17 @@ CREATE TABLE Estudiante (
     carrera NVARCHAR(50) NOT NULL,
     sede NVARCHAR(50) NOT NULL,
     estadomatricula NVARCHAR(50) NOT NULL
+    fecha_ingreso DATETIME ,
 );
 
 CREATE TABLE Turno (
     id_turno INT AUTO_INCREMENT PRIMARY KEY,
-    numero_atencion NVARCHAR(50) NOT NULL UNIQUE,
+    numero_atencion NVARCHAR(20) ,
     matriculaid INT NOT NULL,
     especialidadid INT NOT NULL,
-    fecha_hora DATETIME NOT NULL,
+    tiempo_ingreso DATETIME ,
+    tiempo_atender DATETIME ,
+    tiempo_salida DATETIME ,
     CONSTRAINT FK_Turno_Estudiante FOREIGN KEY (matriculaid) REFERENCES Estudiante (matricula),
     CONSTRAINT FK_Turno_Especialidad FOREIGN KEY (especialidadid) REFERENCES Especialidad (id_especialidad)
 );

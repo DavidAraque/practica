@@ -55,8 +55,8 @@
                         <input type="text" id="correo" name="correo" class="form-control" />
                     </div>
                     <div class="col-3 mb-2">
-                        <label class="form-label">carera</label>
-                        <input type="text" id="carera" name="carera" class="form-control" />
+                        <label class="form-label">carrera</label>
+                        <input type="text" id="carrera" name="carrera" class="form-control" />
                         <input type="hidden" id="registrarcliente" name="registrarcliente" />
                     </div>
                 </div>

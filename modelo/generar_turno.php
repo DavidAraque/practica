@@ -25,7 +25,7 @@ if (!$conexion){
             'nombres' => $respuesta['nombre_estudiante'],
             'apellidos' => $respuesta['apellido_estudiante'],
             'correo' => $respuesta['correo_estudiante'],
-            'carera' => $respuesta['carrera'],
+            'carrera' => $respuesta['carrera'],
         );
     } else {
         $respuesta = array(
@@ -78,15 +78,15 @@ if (!$conexion){
 
 
 if ($_POST['accion'] == 'GenerarTurno') {
-    $datos = json_decode($_POST['datos']);
-    $matricula = $datos->matricula;
-    $rut = $datos->rut;
-    $nombres = strtoupper($datos->nombres);
-    $apellidos = strtoupper($datos->apellidos);
-    $correo = strtoupper($datos->correo);
-    $carera = strtoupper($datos->carera);
-    $id_especialdiad = $datos->id_especialidad;
-    if (empty($matricula) || empty($rut) || empty($nombres) || empty($apellidos)) {
+    $datos[]=$_POST['datos'];
+
+    
+    $matricula =$datos[0] ;
+    $id_especialdiad =$datos[1] ;
+   $letra =$datos[2] ;
+ //  $id_especialdiad = $datos->id_especialidad;
+   // $letra = $datos->letra;
+    if (empty($matricula) ) {
         $respuesta = array(
             "codigo" => 2,
             "respuesta" => 'Verificar los Campos Vacios',
@@ -97,15 +97,16 @@ if ($_POST['accion'] == 'GenerarTurno') {
         $pass = "";
         $db = "practica";
         $conexion = new mysqli($host,$user,$pass,$db);
-
+//aqui traemos los valores para buscar el ultimo turno en db
 
         try {
-            $turno = $conexion->query("SELECT MAX(id_turno)+1 AS turno FROM turno  ");
+            $turno = $conexion->query("SELECT MAX(id_turno) AS nturno, letra_atencion AS latencion,  numero_atencion + 1 AS natencion FROM turno  ");
             $turno = array();
                 while ($row = $query->fetch_assoc()) {
-                    $turno[] = $row;
+                    $turno['natencion'] = $row['natencion'] ;
                 }
-            $nturno= $turno['turno'];
+                $nturno = $turno['natencion'] ;
+                echo  $nturno ;
       //insertar turno en la base datos
             $resultado  = $conexion->query("INSERT INTO turno (numero_atencion,matriculaid,especialidadid) VALUES ('$nturno','$matricula','$id_especialdiad')");
             if ($resultado > 0) {

@@ -22,7 +22,7 @@ function BuscarCliente() {
                 $("#nombres").attr('disabled', 'disabled').val(Data.nombres);
                 $("#apellidos").attr('disabled', 'disabled').val(Data.apellidos);
                 $("#correo").attr('disabled', 'disabled').val(Data.correo);
-                $("#carera").attr('disabled', 'disabled').val(Data.carera);
+                $("#carrera").attr('disabled', 'disabled').val(Data.carrera);
                 $("#registrarcliente").attr('disabled', 'disabled').val("NO");
 
             } else if (Data.codigo == 1) {
@@ -40,7 +40,7 @@ function BuscarCliente() {
                 $("#nombres").removeAttr('disabled').val();
                 $("#apellidos").removeAttr('disabled').val();
                 $("#correo").removeAttr('disabled').val();
-                $("#carera").removeAttr('disabled').val();
+                $("#carrera").removeAttr('disabled').val();
                 $("#registrarcliente").attr('disabled', 'disabled').val("SI");
             } else {
                 Swal.fire({
@@ -96,22 +96,13 @@ function Generar_Turno(serv) {
     var datoservicio = JSON.parse(decodeURIComponent(serv))
     var Datos = {
         matricula: document.getElementsByName('matricula')[0].value,
-        rut: document.getElementsByName('rut')[0].value,
-        nombres: document.getElementsByName('nombres')[0].value,
-        apellidos: document.getElementsByName('apellidos')[0].value,
-        correo: document.getElementsByName('correo')[0].value,
-        carera: document.getElementsByName('carera')[0].value,
-        registrarcliente: document.getElementsByName('registrarcliente')[0].value,
+  
         id_especialidad:datoservicio.id_especialidad,
-        letra:datoservicio.letra_especialidad,//REVISAR AQUI datos.id_especialidad
+        letra:datoservicio.letra_especialidad//REVISAR AQUI datos.id_especialidad
     }
-    console.log(Datos);
-    if (Datos.matricula == "" || Datos.matricula == null || Datos.matricula == undefined ||
-        Datos.rut == "" || Datos.rut == null || Datos.rut == undefined ||
-        Datos.nombres == "" || Datos.nombres == null || Datos.nombres == undefined ||
-        Datos.apellidos == "" || Datos.apellidos == null || Datos.apellidos == undefined ||
-        Datos.correo == "" || Datos.correo == null || Datos.correo == undefined ||
-        Datos.carera == "" || Datos.carera == null || Datos.carera == undefined) {
+    
+    if (Datos.matricula == "" || Datos.matricula == null || Datos.matricula == undefined ) 
+    {
         Swal.fire({
             title: 'Notificacion!',
             position: 'center',
@@ -131,7 +122,9 @@ function Generar_Turno(serv) {
                 url: uribase+ 'modelo/generar_turno.php',
             })
                 .then(function (response) {
+                    console.log(response.text());
                     var Data = JSON.parse(response);
+                    console.log(Data.codigo);
                     if (Data.codigo == 0) {
                         $('#verdatoscliente').hide();
                         $("#matricula").removeAttr('disabled').val();
@@ -139,7 +132,7 @@ function Generar_Turno(serv) {
                         $("#nombres").removeAttr('disabled').val();
                         $("#apellidos").removeAttr('disabled').val();
                         $("#correo").removeAttr('disabled').val();
-                        $("#carera").removeAttr('disabled').val();
+                        $("#carrera").removeAttr('disabled').val();
                         $("#registrarcliente").removeAttr('disabled').val();
                         $("#rutestudiante").val();
                         Swal.fire({  //REVISAR AQUI

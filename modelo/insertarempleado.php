@@ -18,7 +18,7 @@ if (isset($_POST['rut']) && isset($_POST['correo']) && isset($_POST['clave']) &&
     $resultado = mysqli_query($conexion, $sql);
 
     if ($resultado === TRUE) {
-        header("location:../index.php");
+        header("location:../vista/inicioempleado.php");
     } else {
         echo "Datos NO insertados";
     }

@@ -25,6 +25,6 @@
             especialidadid='".$especialidadE."' WHERE id_empleado =".$ide.""; 
             
     if($resultado = $conexion->query($sql)){
-                header("location:../index.php");
+                header("location:../vista/inicioempleado.php");
             }
 ?>

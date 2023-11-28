@@ -21,7 +21,7 @@
         <form action="../modelo/insertarempleado.php" method="POST">
             <div class="mb-2">
                 <label class="form-label">Rut:</label>
-                <input type="text" class="form-control" name="rut">
+                <input type="text" class="form-control" name="rut" required>
             </div>
             <div class="mb-2">
                 <label class="form-label">Correo:</label>

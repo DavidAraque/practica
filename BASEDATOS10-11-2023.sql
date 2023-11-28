@@ -21,7 +21,10 @@ CREATE TABLE Perfilsistema (
 
 CREATE TABLE Especialidad (
     id_especialidad INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_especialidad NVARCHAR(25) NOT NULL
+    nombre_especialidad NVARCHAR(25) NOT NULL,
+    letra_especialidad NVARCHAR(5),
+    estado NVARCHAR(5),
+    fecha_ingreso DATETIME
 );
 
 CREATE TABLE Empleado (
@@ -56,6 +59,9 @@ CREATE TABLE Estudiante (
 CREATE TABLE Turno (
     id_turno INT AUTO_INCREMENT PRIMARY KEY,
     numero_atencion NVARCHAR(20) ,
+    letra_atencion NVARCHAR(20), 
+    empleadoid NVARCHAR(20),
+    boxid NVARCHAR(20),  
     matriculaid INT NOT NULL,
     especialidadid INT NOT NULL,
     tiempo_ingreso DATETIME ,
